@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Loop & Lens — Creative Branding Studio · Video Work</title>
+<meta name="description" content="Brand films, creative & motion graphics and social media video from Loop & Lens, a creative branding studio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+  /* Aeonik TRIAL is a licensed font and isn't on Google Fonts.
+     Put your font file in a "fonts" folder next to this page (see paths below). */
+  @font-face {
+    font-family: "Aeonik TRIAL";
+    src: local("Aeonik TRIAL Regular"), local("AeonikTRIAL-Regular"), local("Aeonik TRIAL"),
+         url("fonts/AeonikTRIAL-Regular.woff2") format("woff2"),
+         url("fonts/AeonikTRIAL-Regular.woff") format("woff"),
+         url("fonts/AeonikTRIAL-Regular.otf") format("opentype");
+    font-weight: 400; font-style: normal; font-display: swap;
+  }
+
+  :root {
+    --navy: #01124a;      /* primary */
+    --black: #000000;     /* secondary */
+    --navy-mid: #1d2f7a;  /* tint of primary */
+    --ink: var(--navy);   /* text colour on light backgrounds */
+    --paper: #f3f4f9;
+    --tint: #dde1f0;
+    --mist: #b4bcde;
+
+    --display: "Aeonik TRIAL", "Helvetica Neue", Arial, sans-serif;
+    --body: "Aeonik TRIAL", "Helvetica Neue", Arial, sans-serif;
+    --serif: "Playfair Display", Georgia, "Times New Roman", serif;
+
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+    --radius: 14px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 400;
+    font-synthesis: none; /* Aeonik Regular only: never fake bold */
+  }
+  img, video, iframe { max-width: 100%; display: block; }
+  a { color: inherit; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; margin: 0; line-height: 1; letter-spacing: -0.02em; }
+  p { margin: 0; }
+  .serif { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.02em; }
+
+  :focus-visible { outline: 3px solid var(--navy-mid); outline-offset: 3px; box-shadow: 0 0 0 6px var(--paper); }
+
+  .wrap { padding-inline: var(--gutter); max-width: 1480px; margin-inline: auto; }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: absolute; inset: 0 0 auto 0; z-index: 5;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.4rem var(--gutter);
+    color: var(--paper);
+  }
+  .logo { font-family: var(--display); font-weight: 400; font-size: 1.35rem; text-decoration: none; letter-spacing: -0.03em; }
+  .site-header nav { display: flex; gap: 1.75rem; align-items: center; }
+  .site-header nav a { text-decoration: none; font-weight: 400; font-size: .98rem; }
+  .site-header nav a:hover { text-decoration: underline; text-underline-offset: 5px; }
+  .pill {
+    display: inline-block; padding: .7rem 1.3rem; border-radius: 999px;
+    background: var(--paper); color: var(--navy); font-weight: 400; text-decoration: none;
+    transition: transform .2s ease, background .2s ease;
+  }
+  .pill:hover { transform: translateY(-2px); background: var(--tint); }
+  .pill.ghost { background: transparent; color: var(--paper); box-shadow: inset 0 0 0 2px var(--paper); }
+  .pill.ghost:hover { background: var(--paper); color: var(--navy); }
+  @media (max-width: 640px) { .site-header nav a:not(.pill) { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--navy);
+    color: var(--paper);
+    padding: clamp(7rem, 16vh, 10rem) 0 0;
+    overflow: hidden;
+  }
+  .hero h1 {
+    font-weight: 400;
+    font-size: clamp(3.4rem, 11.5vw, 11rem);
+    line-height: .88;
+    letter-spacing: -0.045em;
+    max-width: 12ch;
+  }
+  .hero h1 .line { display: block; overflow: hidden; padding-bottom: .06em; }
+  .hero h1 .line span { display: block; animation: rise .9s cubic-bezier(.2,.8,.2,1) both; }
+  .hero h1 .line:nth-child(2) span { animation-delay: .12s; }
+  .hero h1 .line:nth-child(3) span { animation-delay: .24s; }
+  @keyframes rise { from { transform: translateY(105%); } to { transform: none; } }
+
+  .hero-foot {
+    display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 2rem 4rem; align-items: end;
+    margin-top: clamp(2rem, 5vw, 4rem);
+    padding-bottom: clamp(2.5rem, 5vw, 4rem);
+  }
+  .hero-foot p { max-width: 46ch; font-size: 1.2rem; color: var(--mist); }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; justify-content: flex-end; }
+  @media (max-width: 800px) {
+    .hero-foot { grid-template-columns: 1fr; }
+    .hero-cta { justify-content: flex-start; }
+  }
+
+  /* Filmstrip — the one moving thing on the page */
+  .strip {
+    background: var(--black);
+    padding: 14px 0;
+    position: relative;
+  }
+  .strip::before, .strip::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 8px;
+    background: radial-gradient(circle at 8px 4px, var(--navy-mid) 3px, transparent 3.5px) 0 0 / 22px 8px repeat-x;
+    opacity: .9;
+  }
+  .strip::before { top: 3px; }
+  .strip::after { bottom: 3px; }
+  .strip-track { display: flex; gap: 10px; width: max-content; margin: 8px 0; animation: scroll 40s linear infinite; }
+  .frame {
+    height: clamp(130px, 15vw, 200px); aspect-ratio: 1080 / 1920; flex: none; border-radius: 6px;
+    display: grid; place-items: end start; padding: .6rem .8rem;
+    font-family: var(--display); font-weight: 400; font-size: .85rem; color: #fff;
+  }
+  .frame.film { aspect-ratio: 1920 / 1080; }
+  @keyframes scroll { to { transform: translateX(calc(-50% - 5px)); } }
+
+  /* ---------- Work ---------- */
+  .work { padding: clamp(4rem, 9vw, 8rem) 0; }
+  .work-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 1.5rem 3rem; margin-bottom: 2.5rem; }
+  .work-head h2 { font-size: clamp(2.4rem, 6vw, 5rem); font-weight: 400; max-width: 14ch; }
+  .work-head p { max-width: 38ch; color: #4a557f; }
+
+  .filters { display: flex; flex-wrap: wrap; gap: .6rem; margin-bottom: 2rem; }
+  .filters button {
+    font: 400 1rem var(--body); cursor: pointer;
+    padding: .7rem 1.2rem; border-radius: 999px;
+    border: 2px solid var(--ink); background: transparent; color: var(--ink);
+    transition: background .2s, color .2s;
+  }
+  .filters button:hover { background: var(--tint); }
+  .filters button[aria-pressed="true"] { background: var(--navy); color: var(--paper); }
+  .filters .count { opacity: .6; font-weight: 400; margin-left: .35rem; }
+
+  .grid { display: flex; flex-direction: column; gap: 3rem; }
+  .group { display: grid; gap: 2rem 1.25rem; align-items: start; }
+  .group[hidden] { display: none; }
+  /* Brand film: 3 boxes per row */
+  .group.film { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  /* Reels (Motion graphic + Social media): 4 columns x 4 rows = 16 boxes */
+  .group.vertical { grid-template-columns: repeat(4, minmax(0, 1fr)); }  /* reels: 4 boxes per row */
+  @media (max-width: 900px) { .group.film { grid-template-columns: repeat(2, minmax(0, 1fr)); } }  /* reels stay at 4 on tablets */
+  @media (max-width: 560px) {
+    .group.film { grid-template-columns: 1fr; }
+    .group.vertical { grid-template-columns: repeat(2, minmax(0, 1fr)); }  /* phones only */
+  }
+  @media (max-width: 380px) { .group.vertical { grid-template-columns: 1fr; } }
+  .card {
+    margin: 0; display: block; width: 100%;
+    text-align: left; border: 0; padding: 0; background: none; cursor: pointer; font: inherit; color: inherit;
+  }
+  .poster {
+    position: relative; border-radius: var(--radius); overflow: hidden;
+    background-size: cover; background-position: center;
+    transition: transform .3s ease;
+  }
+  .card:hover .poster { transform: scale(.985); }
+  /* Brand film = 1920 x 1080 (3 per row); Motion + Social = 1080 x 1920 */
+  .poster { aspect-ratio: 1080 / 1920; }                 /* motion + social: 1080 w x 1920 h */
+  .poster.film { aspect-ratio: 1920 / 1080; }            /* brand film: 1920 w x 1080 h */
+  .poster .tag {
+    position: absolute; top: .9rem; left: .9rem;
+    background: var(--paper); color: var(--ink); font-weight: 400; font-size: .82rem;
+    padding: .3rem .7rem; border-radius: 999px;
+  }
+  .poster .play {
+    position: absolute; right: .9rem; bottom: .9rem; width: 3.4rem; height: 3.4rem;
+    border-radius: 50%; background: var(--paper); display: grid; place-items: center;
+    transition: transform .25s ease, background .25s ease;
+  }
+  .poster .play::before {
+    content: ""; margin-left: 4px;
+    border-left: 14px solid var(--ink); border-top: 9px solid transparent; border-bottom: 9px solid transparent;
+  }
+  .card:hover .play { transform: scale(1.12); background: var(--navy); }
+  .card:hover .play::before { border-left-color: #fff; }
+  .poster .big {
+    position: absolute; left: 1rem; bottom: 1rem; right: 5.5rem;
+    font-family: var(--display); font-weight: 400; font-size: clamp(1.3rem, 2vw, 1.8rem);
+    line-height: .95; letter-spacing: -0.03em; color: #fff;
+  }
+  .meta { padding: .8rem .2rem 0; }
+  .meta h3 { font-size: 1.25rem; font-weight: 400; letter-spacing: -0.01em; line-height: 1.15; }
+  .meta p { font-family: var(--serif); font-style: italic; color: #4a557f; font-size: 1rem; margin-top: .2rem; }
+  .card[hidden] { display: none; }
+  .poster.film .big { font-size: clamp(1.4rem, 2.4vw, 2.2rem); }
+
+  /* ---------- Process ---------- */
+  .process { padding: clamp(4rem, 9vw, 7rem) 0; }
+  .process h2 { font-size: clamp(2rem, 4.5vw, 3.6rem); font-weight: 400; margin-bottom: 2.5rem; max-width: 16ch; }
+  .steps { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.25rem; }
+  .steps li { counter-increment: step; border-top: 3px solid var(--navy); padding-top: 1rem; }
+  .steps li::before { content: counter(step); font-family: var(--serif); font-style: italic; font-size: 1.6rem; color: var(--navy); }
+  .steps h3 { font-size: 1.4rem; font-weight: 400; margin: .4rem 0; letter-spacing: -0.01em; }
+  .steps p { color: #4a557f; font-size: 1rem; }
+
+  /* ---------- Contact ---------- */
+  .contact { background: var(--black); color: var(--paper); padding: clamp(4rem, 9vw, 8rem) 0; }
+  .contact h2 { font-size: clamp(2.8rem, 9vw, 8rem); font-weight: 400; letter-spacing: -0.045em; line-height: .9; max-width: 11ch; }
+  .contact-row { display: flex; flex-wrap: wrap; gap: 1.5rem 3rem; align-items: center; margin-top: 2.5rem; }
+  .contact .pill { background: var(--paper); color: var(--navy); font-size: 1.1rem; padding: 1rem 1.8rem; }
+  .contact .pill:hover { background: var(--navy); color: var(--paper); }
+  .contact a.mail { font-weight: 400; font-size: 1.2rem; }
+
+  footer { background: var(--navy); color: var(--mist); padding: 1.5rem var(--gutter); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .8rem; font-size: .92rem; }
+  footer a { text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ---------- Video dialog ---------- */
+  dialog {
+    width: min(480px, 94vw); padding: 0; border: 0; border-radius: var(--radius);
+    background: var(--navy); color: var(--paper); overflow: hidden;
+  }
+  dialog::backdrop { background: rgba(0, 0, 0, .85); }
+  .player { aspect-ratio: 1080 / 1920; width: min(100%, calc(78vh * 1080 / 1920)); margin-inline: auto; background: #000; display: grid; place-items: center; }
+  dialog.landscape { width: min(1100px, 94vw); }
+  dialog.landscape .player { aspect-ratio: 1920 / 1080; width: 100%; }
+  .player iframe, .player video { width: 100%; height: 100%; border: 0; object-fit: contain; }
+  .player .empty { padding: 2rem; text-align: center; color: var(--mist); max-width: 40ch; }
+  .dialog-bar { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 1rem 1.25rem; }
+  .dialog-bar h3 { font-size: 1.2rem; font-weight: 400; }
+  .dialog-bar button { font: 400 .98rem var(--body); cursor: pointer; padding: .55rem 1.1rem; border-radius: 999px; border: 2px solid var(--paper); background: transparent; color: var(--paper); }
+  .dialog-bar button:hover { background: var(--paper); color: var(--navy); }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .strip-track, .hero h1 .line span { animation: none; }
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="logo" href="#top">Loop <span class="serif">&amp;</span> Lens</a>
+  <nav aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a class="pill" href="#contact">Start a project</a>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <h1>
+        <span class="line"><span>We make</span></span>
+        <span class="line"><span>brands</span></span>
+        <span class="line"><span class="serif">move.</span></span>
+      </h1>
+      <div class="hero-foot">
+        <p>Loop &amp; Lens is a creative branding studio. We turn brand ideas into films, motion graphics and social video people actually watch to the end.</p>
+        <div class="hero-cta">
+          <a class="pill" href="#work">Watch our work</a>
+          <a class="pill ghost" href="#contact">Start a project</a>
+        </div>
+      </div>
+    </div>
+    <div class="strip" aria-hidden="true">
+      <div class="strip-track" id="stripTrack"></div>
+    </div>
+  </section>
+
+  <!-- Work -->
+  <section class="work" id="work">
+    <div class="wrap">
+      <div class="work-head">
+        <h2>Video work, by <span class="serif">type</span></h2>
+        <p>Pick a category to see what we made, then press play on any project to watch it.</p>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter video work by category" id="filters"></div>
+      <div class="grid" id="grid"></div>
+    </div>
+  </section>
+
+
+  <!-- Process -->
+  <section class="process" id="process">
+    <div class="wrap">
+      <h2>How a project <span class="serif">runs</span></h2>
+      <ol class="steps">
+        <li><h3>Brief</h3><p>We learn the brand, the audience and where the video will be seen.</p></li>
+        <li><h3>Concept</h3><p>You get a script, moodboard and storyboard to approve before we shoot.</p></li>
+        <li><h3>Production</h3><p>Filming, animation and sound design with a small, focused crew.</p></li>
+        <li><h3>Delivery</h3><p>Final cuts in every format you need, brand films in 1920 × 1080 and social and motion in vertical 1080 × 1920.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Have a story to <span class="serif">tell?</span></h2>
+      <div class="contact-row">
+        <a class="pill" href="mailto:hello@yourstudio.com?subject=New%20project">Start a project</a>
+        <a class="mail" href="mailto:hello@yourstudio.com">hello@yourstudio.com</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Loop &amp; Lens. All rights reserved.</span>
+  <span><a href="#">Instagram</a> &nbsp; <a href="#">Behance</a> &nbsp; <a href="#">YouTube</a></span>
+</footer>
+
+<dialog id="player-dialog" aria-labelledby="dialogTitle">
+  <div class="player" id="playerBox"></div>
+  <div class="dialog-bar">
+    <h3 id="dialogTitle"></h3>
+    <button type="button" id="closeBtn">Close</button>
+  </div>
+</dialog>
+
+<script>
+/* =====================================================
+   EDIT YOUR WORK HERE
+   - Brand film videos are 1920 w x 1080 h (16:9) and show 3 boxes per row
+   - Motion graphic + Social media reels show 4 boxes per row
+   - Motion graphic + Social media videos are 1080 w x 1920 h (9:16 vertical), 4 per row (16 reels = 4 x 4)
+   - category: "film" | "motion" | "social"
+   - video: a YouTube/Vimeo embed URL (e.g. https://www.youtube.com/embed/VIDEO_ID)
+            or a direct .mp4 link. Leave "" to show a placeholder.
+   - poster: optional image URL (e.g. "images/solé.jpg"). Leave "" to use the colour poster.
+   ===================================================== */
+const CATEGORIES = {
+  film:   { label: "Brand film" },
+  motion: { label: "Creative & Motion graphic" },
+  social: { label: "Social media" }
+};
+
+const WORKS = [
+  { title: "Slow Mornings",          client: "Solé Coffee",       category: "film",   video: "", poster: "" },
+  { title: "Made by Hand",           client: "Kiln & Clay",       category: "film",   video: "", poster: "" },
+  { title: "The Long Way Home",      client: "Ardent Outdoors",   category: "film",   video: "", poster: "" },
+  { title: "Logo Reveal Pack",       client: "Orbit Fintech",     category: "motion", video: "", poster: "" },
+  { title: "Product in Motion",      client: "Pulse Audio",       category: "motion", video: "", poster: "" },
+  { title: "Explainer: How It Works",client: "Greenleaf Energy",  category: "motion", video: "", poster: "" },
+  { title: "Kinetic Type Intro",     client: "Orbit Fintech",     category: "motion", video: "", poster: "" },
+  { title: "Packaging Unboxed",      client: "Kiln & Clay",       category: "motion", video: "", poster: "" },
+  { title: "Data in Motion",         client: "Greenleaf Energy",  category: "motion", video: "", poster: "" },
+  { title: "Sound Wave Teaser",      client: "Pulse Audio",       category: "motion", video: "", poster: "" },
+  { title: "Brand Pattern Loop",     client: "Ardent Outdoors",   category: "motion", video: "", poster: "" },
+  { title: "Launch Week Reels",      client: "Solé Coffee",       category: "social", video: "", poster: "" },
+  { title: "Behind the Brand",       client: "Kiln & Clay",       category: "social", video: "", poster: "" },
+  { title: "15-Second Hooks",        client: "Pulse Audio",       category: "social", video: "", poster: "" },
+  { title: "Trail Stories",          client: "Ardent Outdoors",   category: "social", video: "", poster: "" },
+  { title: "Customer Spotlight",     client: "Orbit Fintech",     category: "social", video: "", poster: "" },
+  { title: "Teaser Drop",            client: "Greenleaf Energy",  category: "social", video: "", poster: "" },
+  { title: "Studio Day",             client: "Loop & Lens",       category: "social", video: "", poster: "" },
+  { title: "Quick Tips",             client: "Solé Coffee",       category: "social", video: "", poster: "" }
+];
+
+/* Poster colours (brand navy, black and a navy tint) */
+const SWATCHES = [
+  ["#01124a", "#000000"], ["#1d2f7a", "#01124a"], ["#000000", "#01124a"],
+  ["#01124a", "#1d2f7a"], ["#1d2f7a", "#000000"], ["#000000", "#1d2f7a"]
+];
+const bg = (i) => {
+  const [a, b] = SWATCHES[i % SWATCHES.length];
+  return `linear-gradient(${135 + (i * 25) % 90}deg, ${a}, ${b})`;
+};
+
+/* ---------- Filmstrip ---------- */
+const track = document.getElementById("stripTrack");
+const names = ["Brand film", "Motion graphic", "Social media"];
+let frames = "";
+for (let i = 0; i < 12; i++) {
+  frames += `<div class="frame${i % 3 === 0 ? " film" : ""}" style="background:${bg(i)}">${names[i % 3]}</div>`;
+}
+track.innerHTML = frames + frames; // doubled for a seamless loop
+
+/* ---------- Filters + grid ---------- */
+const filtersEl = document.getElementById("filters");
+const gridEl = document.getElementById("grid");
+let active = "all";
+
+function renderFilters() {
+  const entries = [["all", "All work"], ...Object.entries(CATEGORIES).map(([k, v]) => [k, v.label])];
+  filtersEl.innerHTML = entries.map(([key, label]) => {
+    const n = key === "all" ? WORKS.length : WORKS.filter(w => w.category === key).length;
+    return `<button type="button" data-cat="${key}" aria-pressed="${key === active}">${label}<span class="count">${n}</span></button>`;
+  }).join("");
+}
+
+function cardHTML(w, i) {
+  const cat = CATEGORIES[w.category];
+  const style = w.poster
+    ? `background-image:url('${w.poster}')`
+    : `background-image:${bg(i)}`;
+  return `
+    <button class="card" data-index="${i}" data-cat="${w.category}"
+            aria-label="Play ${w.title} for ${w.client}">
+      <div class="poster ${w.category}" style="${style}">
+        <span class="tag">${cat.label}</span>
+        ${w.poster ? "" : `<span class="big">${w.title}</span>`}
+        <span class="play"></span>
+      </div>
+      <div class="meta">
+        <h3>${w.title}</h3>
+        <p>${w.client}</p>
+      </div>
+    </button>`;
+}
+
+function renderGrid() {
+  const film  = WORKS.map((w, i) => w.category === "film" ? cardHTML(w, i) : "").join("");
+  const reels = WORKS.map((w, i) => w.category !== "film" ? cardHTML(w, i) : "").join("");
+  gridEl.innerHTML =
+    `<div class="group film" data-group="film">${film}</div>` +
+    `<div class="group vertical" data-group="reels">${reels}</div>`;   /* reels: 4 columns x 4 rows */
+  applyFilter();
+}
+
+function applyFilter() {
+  gridEl.querySelectorAll(".card").forEach(c => {
+    c.hidden = active !== "all" && c.dataset.cat !== active;
+  });
+  gridEl.querySelectorAll(".group").forEach(g => {
+    g.hidden = !g.querySelector(".card:not([hidden])");
+  });
+}
+
+filtersEl.addEventListener("click", (e) => {
+  const btn = e.target.closest("button[data-cat]");
+  if (!btn) return;
+  active = btn.dataset.cat;
+  filtersEl.querySelectorAll("button").forEach(b => b.setAttribute("aria-pressed", b === btn));
+  applyFilter();
+});
+
+/* ---------- Video dialog ---------- */
+const dialog = document.getElementById("player-dialog");
+const box = document.getElementById("playerBox");
+const titleEl = document.getElementById("dialogTitle");
+
+function openVideo({ title, client, video, category }) {
+  titleEl.textContent = client ? `${title} — ${client}` : title;
+  box.className = "player";
+  dialog.classList.toggle("landscape", category === "film"); // brand film = 1920 x 1080
+  if (!video) {
+    box.innerHTML = `<p class="empty">No video linked yet. Add a YouTube or Vimeo embed link, or an .mp4 file, to this project in the WORKS list in index.html.</p>`;
+  } else if (/\.(mp4|webm|mov)(\?.*)?$/i.test(video)) {
+    box.innerHTML = `<video src="${video}" controls autoplay playsinline></video>`;
+  } else {
+    const sep = video.includes("?") ? "&" : "?";
+    box.innerHTML = `<iframe src="${video}${sep}autoplay=1" title="${title}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>`;
+  }
+  dialog.showModal();
+}
+function closeVideo() { dialog.close(); }
+
+dialog.addEventListener("close", () => { box.innerHTML = ""; }); // stops playback
+dialog.addEventListener("click", (e) => { if (e.target === dialog) closeVideo(); });
+document.getElementById("closeBtn").addEventListener("click", closeVideo);
+
+gridEl.addEventListener("click", (e) => {
+  const card = e.target.closest(".card");
+  if (card) openVideo(WORKS[card.dataset.index]);
+});
+
+
+/* ---------- Init ---------- */
+renderFilters();
+renderGrid();
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
